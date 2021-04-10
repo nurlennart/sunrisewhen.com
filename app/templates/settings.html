@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Sunrise and Sunset Settings</title>
+    <meta name="title" content="Sunrise and Sunset Settings">
+    <meta name="description" content="sunrise and sunset times for your area, always up to date and accurate. ">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sunrisewhen.com/">
+    <meta property="og:title" content="Sunrise and Sunset Settings">
+    <meta property="og:description" content="sunrise and sunset times for your area, always up to date and accurate. ">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sunrisewhen.com/">
+    <meta property="twitter:title" content="Sunrise and Sunset Settings">
+    <meta property="twitter:description" content="sunrise and sunset times for your area, always up to date and accurate. ">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='img/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='img/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <div class="settings">
+        <img src="{{ url_for('static', filename='img/tools.svg') }}" width="128px">
+        <br  />
+        <div style="color: rgba(255, 0, 0, 0.719); margin-top: 8px; display:inline-block">{{ message }}</div>
+        <br  />
+        {% if request.cookies.get('lat') %}
+        <div>your location is set to lat:{{ request.cookies.get('lat') }} lng:{{ request.cookies.get('lon') }}</div>
+        {% elif request.cookies.get('cus_lat') %}
+        <div>your location is set to lat:{{ request.cookies.get('cus_lat') }} lng:{{ request.cookies.get('cus_lon') }}</div>
+        {% else %}
+        <div>your location couldn't be displayed - either you haven't requested the main page once, or you don't allow the creation of cookies</div>
+        {% endif %}
+
+        <form action='settings' method="POST" style="padding: 8px;">
+            <input type="number" step=".0000001" placeholder="lat" name="lat" class="set-var">
+            <br  />
+            <input type="number" step=".0000001" placeholder="lon" name="lon" class="set-var">
+            <br  />
+            <button class="coord-dial" style="font-family: 'Zector';" type="submit">SET</button>
+        </form>
+
+        <form action='settings' method="POST" style="padding: 8px;">
+            <button class="reset" type="submit" name="reset" value="reset">FACTORY RESET</button>
+        </form>
+
+        <div class="footer">
+            <a class="footer-text" href="https://www.gps-coordinates.net/" target="_blank" rel="noreferrer">LOCATION TO COORDINATES</a>
+            <a class="footer-text" href="/"> | HOME</a>
+        </div>    
+    </div>
+    
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://stonks.lennartobst.de/";
+            _paq.push(['setTrackerUrl', u+'js/']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->    
+</body>
+</html>

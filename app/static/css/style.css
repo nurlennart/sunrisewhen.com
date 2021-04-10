@@ -1,0 +1,117 @@
+@font-face {
+    font-family: "Zector";
+    src: url(../fonts/Zector.otf);
+    font-display: swap;
+}
+
+body {
+    background-color: #f8f8ff;
+    height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: #353535;
+      color: white;
+    }
+}
+
+.schedule {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time {
+    text-align: center;
+    font-family: 'Zector';
+    font-size: 36px;
+}
+
+.localtime {
+    font-family: 'Zector';
+    font-size: 14px;
+    opacity: 90%;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: gray;
+    padding: 6px;
+}
+
+@media only screen and (max-width: 900px) {
+    .footer {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .footer {
+        position: inherit;
+        margin-top: 24px;
+        padding: 0px;
+    }
+}
+
+.footer-text {
+    text-decoration: none;
+    font-family: 'Zector';
+    font-size: 1em;   
+}
+
+a:link {
+    color: gray;
+}
+  
+  a:visited {
+    color: gray;
+}
+
+.credits {
+    font-family: 'Zector';
+    font-size: 24px;
+    text-decoration: none;
+}
+
+
+.settings {
+    margin-top: 128px;
+    font-family: 'Zector';
+    font-size: 1em;
+    text-align: center;
+}
+
+.coord-dial {
+    font-family: 'Zector';
+    font-size: 1em;
+    margin-top: 4px;
+}
+
+.set-var {
+    font-family: 'Zector';
+    font-size: 1em;
+    height: 16px;
+    margin: 4px;
+}
+
+.reset {
+    font-family: 'Zector'; 
+    color: rgba(255, 0, 0, 0.719);
+    font-size: 1em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

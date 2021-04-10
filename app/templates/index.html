@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Sunrise and Sunset - accurate times for your location</title>
+    <meta name="title" content="Sunrise and Sunset - accurate times for your location">
+    <meta name="description" content="Sunrise and Sunset Times for your area, always up to date and accurate. Displayed aesthetically pleasing.">
+    <meta name="keywords" content="sunrise, sunset, sunrise time, sunset time, sunrise sunset, when is sunrise, when is sunset, sunrise when, sunset when, sunrise today, sunset today, sun set, sun rise">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sunrisewhen.com/">
+    <meta property="og:title" content="Sunrise and Sunset - accurate times for your location">
+    <meta property="og:description" content="Sunrise and Sunset Times for your area, always up to date and accurate. Displayed aesthetically pleasing.">
+    <meta property="og:image" content="{{ url_for('static', filename='img/sunrise_og.png') }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sunrisewhen.com/">
+    <meta property="twitter:title" content="Sunrise and Sunset - accurate times for your location">
+    <meta property="twitter:description" content="Sunrise and Sunset Times for your area, always up to date and accurate. Displayed aesthetically pleasing.">
+    <meta property="twitter:image" content="{{ url_for('static', filename='img/sunrise.svg') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="manifest" href="{{ url_for('static', filename='img/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='img/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <div class="schedule">
+        <div class="sunrise">
+            <img src="{{ url_for('static', filename='img/sunrise.svg') }}" width="256px" alt="sunrise">
+            <div class="time" id="sunrise">{{ suntimes[0] }}</div>
+            <div class="time" id="sunrise_utc" style="font-size: 14px;">UTC {{ suntimes[2] }}</div>
+        </div>
+        <div class="sunset">
+            <img src="{{ url_for('static', filename='img/sunset.svg') }}" width="256px" alt="sunset">
+            <div class="time" id="sunset">{{ suntimes[1] }}</div>
+            <div class="time" id="sunset_utc" style="font-size: 14px;">UTC {{ suntimes[3] }}</div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        {% if not request.cookies.get('lat') %}
+        <a class="footer-text" href="https://wego.here.com/?map={{ local.lat }},{{ local.lon }},12,normal" target="_blank" rel="noreferrer">guesstimated 📍 lat:{{ local.lat }} lng:{{ local.lon }}</a>
+        {% else %}
+        <a class="footer-text" href="https://wego.here.com/?map={{ request.cookies.get('lat') }},{{ request.cookies.get('lon') }},12,normal" target="_blank" rel="noreferrer">guesstimated 📍 lat:{{ request.cookies.get('lat') }} lng:{{ request.cookies.get('lon') }}</a>
+        {% endif %}
+        <a class="footer-text" href="/credits" target="_blank"> | CREDITS</a>
+    </div>
+    
+    <script type="text/javascript">
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(savePosition);
+        }
+        function savePosition(position) {
+            document.cookie = "lat=" + parseFloat(position.coords.latitude.toFixed(5)) + "; max-age=259200; path=/; Secure;";
+            document.cookie = "lon=" + parseFloat(position.coords.longitude.toFixed(5)) + "; max-age=259200; path=/; Secure;";
+            getUpdate();
+        }
+        function getUpdate() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    times = JSON.parse(this.response);
+                    updateDivs(times);
+                }
+            };
+            xhttp.open("GET", "/update", true);
+            xhttp.send();
+        }
+        function updateDivs(times) {
+            times = times;
+            document.getElementById("sunrise").innerHTML = times[0];
+            document.getElementById("sunrise_utc").innerHTML = times[2];
+            document.getElementById("sunset").innerHTML = times[1];
+            document.getElementById("sunset_utc").innerHTML = times[3];
+        }
+    </script> 
+    
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://stonks.lennartobst.de/";
+            _paq.push(['setTrackerUrl', u+'js/']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->    
+</body>
+</html>
