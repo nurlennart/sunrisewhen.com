@@ -83,9 +83,9 @@
             var lat = parseFloat(position.coords.latitude.toFixed(5));
             var lon = parseFloat(position.coords.longitude.toFixed(5));
             document.getElementById("sunrise").innerHTML = times[0];
-            document.getElementById("sunrise_utc").innerHTML = times[2];
+            document.getElementById("sunrise_utc").innerHTML = 'UTC ' + times[2];
             document.getElementById("sunset").innerHTML = times[1];
-            document.getElementById("sunset_utc").innerHTML = times[3];
+            document.getElementById("sunset_utc").innerHTML = 'UTC ' + times[3];
             
             var el = document.querySelector('#loclink');
             
