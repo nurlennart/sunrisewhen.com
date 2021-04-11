@@ -39,21 +39,21 @@
     <div class="schedule">
         <div class="sunrise">
             <img src="{{ url_for('static', filename='img/sunrise.svg') }}" width="256px" alt="sunrise">
-            <div class="time" id="sunrise">{{ suntimes[0] }}</div>
-            <div class="time" id="sunrise_utc" style="font-size: 14px;">UTC {{ suntimes[2] }}</div>
+            <div id="sunrise" class="time">{{ suntimes[0] }}</div>
+            <div id="sunrise_utc" class="time" style="font-size: 14px;">UTC {{ suntimes[2] }}</div>
         </div>
         <div class="sunset">
             <img src="{{ url_for('static', filename='img/sunset.svg') }}" width="256px" alt="sunset">
-            <div class="time" id="sunset">{{ suntimes[1] }}</div>
-            <div class="time" id="sunset_utc" style="font-size: 14px;">UTC {{ suntimes[3] }}</div>
+            <div id="sunset" class="time">{{ suntimes[1] }}</div>
+            <div id="sunset_utc" class="time" style="font-size: 14px;">UTC {{ suntimes[3] }}</div>
         </div>
     </div>
     
     <div class="footer">
         {% if not request.cookies.get('lat') %}
-        <a class="footer-text" href="https://wego.here.com/?map={{ local.lat }},{{ local.lon }},12,normal" target="_blank" rel="noreferrer">guesstimated 📍 lat:{{ local.lat }} lng:{{ local.lon }}</a>
+        <a id="loclink" class="footer-text" href="https://wego.here.com/?map={{ local.lat }},{{ local.lon }},12,normal" target="_blank" rel="noreferrer">guesstimated 📍 lat:{{ local.lat }} lng:{{ local.lon }}</a>
         {% else %}
-        <a class="footer-text" href="https://wego.here.com/?map={{ request.cookies.get('lat') }},{{ request.cookies.get('lon') }},12,normal" target="_blank" rel="noreferrer">guesstimated 📍 lat:{{ request.cookies.get('lat') }} lng:{{ request.cookies.get('lon') }}</a>
+        <a id="loclink" class="footer-text" href="https://wego.here.com/?map={{ request.cookies.get('lat') }},{{ request.cookies.get('lon') }},12,normal" target="_blank" rel="noreferrer">guesstimated 📍 lat:{{ request.cookies.get('lat') }} lng:{{ request.cookies.get('lon') }}</a>
         {% endif %}
         <a class="footer-text" href="/credits" target="_blank"> | CREDITS</a>
     </div>
@@ -65,25 +65,39 @@
         function savePosition(position) {
             document.cookie = "lat=" + parseFloat(position.coords.latitude.toFixed(5)) + "; max-age=259200; path=/; Secure;";
             document.cookie = "lon=" + parseFloat(position.coords.longitude.toFixed(5)) + "; max-age=259200; path=/; Secure;";
-            getUpdate();
+            getUpdate(position);
         }
-        function getUpdate() {
+        function getUpdate(position) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     times = JSON.parse(this.response);
-                    updateDivs(times);
+                    updateDivs(times, position);
                 }
             };
             xhttp.open("GET", "/update", true);
             xhttp.send();
         }
-        function updateDivs(times) {
+        function updateDivs(times, position) {
             times = times;
+            var lat = parseFloat(position.coords.latitude.toFixed(5));
+            var lon = parseFloat(position.coords.longitude.toFixed(5));
             document.getElementById("sunrise").innerHTML = times[0];
             document.getElementById("sunrise_utc").innerHTML = times[2];
             document.getElementById("sunset").innerHTML = times[1];
             document.getElementById("sunset_utc").innerHTML = times[3];
+            
+            var el = document.querySelector('#loclink');
+            
+            var newEl = document.createElement('a');
+            newEl.setAttribute("class", 'footer-text');
+            newEl.setAttribute("id", 'loclink');
+            newEl.setAttribute("href", 'https://wego.here.com/?map=' + lat + ',' + lon + ',12,normal');
+            newEl.setAttribute("target", '_blank');
+            newEl.setAttribute("rel", 'noreferrer');
+            newEl.innerHTML = '📍 lat:' + lat + ' lng:' + lon;
+            
+            el.parentNode.replaceChild(newEl, el);
         }
     </script> 
     

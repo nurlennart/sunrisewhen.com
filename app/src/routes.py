@@ -41,6 +41,7 @@ def update():
         for time in suntimes:
             timedict.append(time)
         res = jsonify(timedict)
+        res.set_cookie('times', json.dumps(suntimes), max_age=60*60*12, secure=True, httponly=False)
         return(res)
     except Exception:
         return('error')
