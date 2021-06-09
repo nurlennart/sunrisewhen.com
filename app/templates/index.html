@@ -56,6 +56,7 @@
         <a id="loclink" class="footer-text" href="https://wego.here.com/?map={{ request.cookies.get('lat') }},{{ request.cookies.get('lon') }},12,normal" target="_blank" rel="noreferrer">guesstimated 📍 lat:{{ request.cookies.get('lat') }} lng:{{ request.cookies.get('lon') }}</a>
         {% endif %}
         <a class="footer-text" href="/credits" target="_blank"> | CREDITS</a>
+        <a class="footer-text"> | WE RESPECT YOUR PRIVACY, DON'T LET GOOGLE TRACK YOUR LOCATION JUST TO DISPLAY SOME TIMES.</a>
     </div>
 
     <script src="{{ url_for('static', filename='js/geolocation.js') }}"></script>
