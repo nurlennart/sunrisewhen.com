@@ -47,3 +47,15 @@ class localizer():
         local_set = utc_set.astimezone(pytz.timezone(self.zone)).strftime('%I:%M:%S %p')
         final = [local_rise, local_set, utc_rise.strftime('%I:%M:%S %p'), utc_set.strftime('%I:%M:%S %p')]
         return(final)
+
+    def isoTimes(self, suntimes):
+        self.timezone()
+        utc_rise = datetime.datetime.strptime(suntimes['results']['sunrise'], '%Y-%m-%dT%H:%M:%S%z')
+        utc_set = datetime.datetime.strptime(suntimes['results']['sunset'], '%Y-%m-%dT%H:%M:%S%z')
+        local_rise = utc_rise.astimezone(pytz.timezone(self.zone)).isoformat()
+        local_set = utc_set.astimezone(pytz.timezone(self.zone)).isoformat()
+        times = {
+            'sunrise': local_rise,
+            'sunset': local_set,
+        }
+        return(times)

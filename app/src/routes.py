@@ -47,6 +47,17 @@ def update():
         return('error')
 
 
+@app.route('/api')
+@limiter.limit("100/minute")
+def api():
+    try:
+        local = localizer(request.headers['X-Real-IP'])
+        suntimes = local.isoTimes(local.sunapi())
+        return(json.dumps(suntimes))
+    except Exception:
+        return('error')
+
+
 @app.route('/credits')
 def credit():
     return render_template('credits.html')
