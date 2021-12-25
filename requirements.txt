@@ -1,8 +1,0 @@
-flask
-flask_limiter
-werkzeug
-requests
-datetime
-pytz
-gunicorn
-geoip2

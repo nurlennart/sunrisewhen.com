@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /$
+Allow: /de/
+Disallow: /de/credits
+Disallow: /de/credits.html
+Disallow: /credits
+Disallow: /credits.html

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Sonnenauf- und Untergang Heute</title>
+    <meta name="title" content="Sonnenaufgang und Sonnenuntergang Heute">
+    <meta name="description" content="Sonnenaufgang, Sonnenuntergang und Dämmerung für den heutigen Tag, aktuell und akkurat. Minimalistisch und sparsam im Datenverbrauch">
+    <meta name="keywords" content="sonnenuntergang wann, sonnenaufgang wann, sonnenaufgang, sonnenuntergang, zeit, wann ist sonnenaufgang, wann ist sonnenuntergang, sonnenaufgang heute, sonnenuntergang heute, dämmerung heute">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sunrisewhen.com/de/">
+    <meta property="og:title" content="Sonnenaufgang und Sonnenuntergang Heute">
+    <meta property="og:description" content="Sonnenaufgang, Sonnenuntergang und Dämmerung für den heutigen Tag, aktuell und akkurat. Minimalistisch und sparsam im Datenverbrauch">
+    <meta property="og:image" content="/static/img/twitter_large.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sunrisewhen.com/de/">
+    <meta property="twitter:title" content="Sonnenaufgang und Sonnenuntergang Heute">
+    <meta property="twitter:description" content="Sonnenaufgang, Sonnenuntergang und Dämmerung für den heutigen Tag, aktuell und akkurat. Minimalistisch und sparsam im Datenverbrauch">
+    <meta property="twitter:image" content="/static/img/twitter_large.png">
+    
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png">
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <link rel="manifest" href="static/img/site.webmanifest">
+    <link rel="mask-icon" href="static/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <h1 class="heading">Sonnenaufgang und Sonnenuntergang Heute</h1>
+    <div class="schedule">
+        <div class="sunrise">
+            <img src="static/img/sunrise.svg" width="256" alt="sunrise">
+            <div id="loading1" class="lds-dual-ring"></div>
+            <div id="sunrise" class="time"></div>
+            <div id="sunrise_utc" class="time" style="font-size: 14px;"></div>
+            <div id="twilight_begin" class="time" style="font-size: 14px; display: none;"></div>
+        </div>
+        <div class="sunset">
+            <img src="static/img/sunset.svg" width="256" alt="sunset">
+            <div id="loading2" class="lds-dual-ring"></div>
+            <div id="sunset" class="time"></div>
+            <div id="sunset_utc" class="time" style="font-size: 14px;"></div>
+            <div id="twilight_end" class="time" style="font-size: 14px; display: none;"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <a class="footer-text twilight-toggle" onclick="toggleTwilight();_paq.push(['trackEvent', 'Button', 'TwilightToggle']);">DÄMMERUNG AN/AUS</a>
+        <br  />
+        <br  />
+        <a id="loclink" class="footer-text" href="" target="_blank" rel="noreferrer"></a>
+        <br  />
+        <a class="footer-text" href="https://sunrisewhen.com/privacy/" target="_blank">WIR RESPEKTIEREN DEINE PRIVATSPHÄRE, LASS' DICH FÜR EIN PAAR UHRZEITEN NICHT VON GOOGLE TRACKEN!</a>
+    </div>
+    <script src="static/js/data.js"></script>
+    
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://stonks.lennartobst.de/";
+            _paq.push(['setTrackerUrl', u+'js/']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->    
+</body>
+</html>

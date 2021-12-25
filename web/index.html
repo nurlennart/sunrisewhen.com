@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Sunrise and Sunset Times</title>
+    <meta name="title" content="Sunrise and Sunset Times">
+    <meta name="description" content="Today's Sunrise, Sunset and Civil Twilight Times for your area, up-to-date and accurate. Displayed minimalistically and data saving.">
+    <meta name="keywords" content="sunrise when, sunset when, sunrise, sunset, time, when is sunrise, when is sunset, sunrise today, sunset today, twilight today, civil twilight">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sunrisewhen.com">
+    <meta property="og:title" content="Sunrise and Sunset Times">
+    <meta property="og:description" content="Today's Sunrise, Sunset and Civil Twilight Times for your area, up-to-date and accurate. Displayed minimalistically and data saving">
+    <meta property="og:image" content="/static/img/twitter_large.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sunrisewhen.com">
+    <meta property="twitter:title" content="Sunrise and Sunset Times">
+    <meta property="twitter:description" content="Today's Sunrise, Sunset and Civil Twilight Times for your area, up-to-date and accurate. Displayed minimalistically and data saving">
+    <meta property="twitter:image" content="/static/img/twitter_large.png">
+    
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png">
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <link rel="manifest" href="static/img/site.webmanifest">
+    <link rel="mask-icon" href="static/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <h1 class="heading">Today's Sunrise and Sunset</h1>
+    <div class="schedule">
+        <div class="sunrise">
+            <img src="static/img/sunrise.svg" width="256" alt="sunrise">
+            <div id="loading1" class="lds-dual-ring"></div>
+            <div id="sunrise" class="time"></div>
+            <div id="sunrise_utc" class="time" style="font-size: 14px;"></div>
+            <div id="twilight_begin" class="time" style="font-size: 14px; display: none;"></div>
+        </div>
+        <div class="sunset">
+            <img src="static/img/sunset.svg" width="256" alt="sunset">
+            <div id="loading2" class="lds-dual-ring"></div>
+            <div id="sunset" class="time"></div>
+            <div id="sunset_utc" class="time" style="font-size: 14px;"></div>
+            <div id="twilight_end" class="time" style="font-size: 14px; display: none;"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <a class="footer-text twilight-toggle" onclick="toggleTwilight();_paq.push(['trackEvent', 'Button', 'TwilightToggle']);">TWILIGHT</a>
+        <br  />
+        <br  />
+        <a id="loclink" class="footer-text" href="" target="_blank" rel="noreferrer"></a>
+        <br  />
+        <a class="footer-text privacy" href="./privacy/" target="_blank">WE RESPECT YOUR PRIVACY, DON'T LET GOOGLE TRACK YOUR LOCATION JUST TO DISPLAY SOME TIMES!</a>
+    </div>
+    <script src="static/js/data.js"></script>
+    
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://stonks.lennartobst.de/";
+            _paq.push(['setRequestMethod', 'POST']);
+            _paq.push(['setTrackerUrl', u+'js/']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->    
+</body>
+</html>
