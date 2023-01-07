@@ -39,18 +39,18 @@
     <h1 class="heading">Today's Sunrise and Sunset</h1>
     <div class="schedule">
         <div class="sunrise">
-            <img src="static/img/sunrise.svg" width="256" alt="sunrise">
+            <img src="static/img/sunrise.svg" width="60%" alt="sunrise">
             <div id="loading1" class="lds-dual-ring"></div>
             <div id="sunrise" class="time"></div>
-            <div id="sunrise_utc" class="time" style="font-size: 14px;"></div>
-            <div id="twilight_begin" class="time" style="font-size: 14px; display: none;"></div>
+            <div id="sunrise_utc" class="time" style="font-size: 1.3em;"></div>
+            <div id="twilight_begin" class="time" style="font-size: 1.3em; display: none;"></div>
         </div>
         <div class="sunset">
-            <img src="static/img/sunset.svg" width="256" alt="sunset">
+            <img src="static/img/sunset.svg" width="60%" alt="sunset">
             <div id="loading2" class="lds-dual-ring"></div>
             <div id="sunset" class="time"></div>
-            <div id="sunset_utc" class="time" style="font-size: 14px;"></div>
-            <div id="twilight_end" class="time" style="font-size: 14px; display: none;"></div>
+            <div id="sunset_utc" class="time" style="font-size: 1.3em;"></div>
+            <div id="twilight_end" class="time" style="font-size: 1.3em; display: none;"></div>
         </div>
     </div>
     
@@ -70,6 +70,7 @@
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
+	_paq.push(['setRequestMethod', 'POST']);
         (function() {
             var u="https://stonks.lennartobst.de/";
             _paq.push(['setRequestMethod', 'POST']);

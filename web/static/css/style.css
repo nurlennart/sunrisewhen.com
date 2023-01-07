@@ -17,10 +17,11 @@ body {
 }
 
 .heading {
+    text-align: -webkit-center;
     text-align: center;
     font-family: Zector;
     color: gray;
-    font-size: 1em;   
+    font-size: 1.4em;   
 }
 
 .schedule {
@@ -32,9 +33,10 @@ body {
 }
 
 .time {
+    text-align: -webkit-center;    
     text-align: center;
     font-family: 'Zector';
-    font-size: 36px;
+    font-size: 3em;
 }
 
 .localtime {
@@ -44,32 +46,16 @@ body {
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     color: gray;
-    padding-bottom: 10px;
+    margin-top: 150px;
+    text-align: -webkit-center;
     text-align: center;
-}
-
-@media only screen and (max-width: 900px) {
-    .footer {
-        text-align: center;
-    }
-}
-
-@media only screen and (max-height: 900px) {
-    .footer {
-        position: inherit;
-        margin-top: 60px;
-        padding: 0px;
-    }
 }
 
 .footer-text {
     text-decoration: none;
     font-family: 'Zector';
-    font-size: 1em;
+    font-size: 1.2em;
     margin: 0;
 }
 
@@ -130,6 +116,7 @@ input[type=number] {
     margin: auto;
     width: 40px;
     height: 40px;
+    text-align: -webkit-center;
     text-align: center;
   }
   .lds-dual-ring:after {
@@ -152,3 +139,12 @@ input[type=number] {
     }
   }
   
+.sunrise {
+    text-align: -webkit-center;
+    text-align: center;
+}
+
+.sunset {
+    text-align: -webkit-center;
+    text-align: center;
+}
