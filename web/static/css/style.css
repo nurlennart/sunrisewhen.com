@@ -21,7 +21,6 @@ body {
     text-align: center;
     font-family: Zector;
     color: gray;
-    font-size: 1.4em;   
 }
 
 .schedule {
@@ -37,6 +36,14 @@ body {
     text-align: center;
     font-family: 'Zector';
     font-size: 3em;
+}
+
+.time-twilight {
+  text-align: -webkit-center;    
+  text-align: center;
+  font-family: 'Zector';
+  font-size: 3em;
+  opacity: 50%;
 }
 
 .localtime {

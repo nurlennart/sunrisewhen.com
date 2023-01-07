@@ -7,7 +7,7 @@
     <!-- Primary Meta Tags -->
     <title>Sunrise and Sunset Times</title>
     <meta name="title" content="Sunrise and Sunset Times">
-    <meta name="description" content="Today's Sunrise, Sunset and Civil Twilight Times for your area, up-to-date and accurate. Displayed minimalistically and data saving.">
+    <meta name="description" content="Get accurate and up-to-date sunrise, sunset, and civil twilight times for your local area with our minimalistic and data-saving service. Never miss a beautiful sunrise or sunset again!">
     <meta name="keywords" content="sunrise when, sunset when, sunrise, sunset, time, when is sunrise, when is sunset, sunrise today, sunset today, twilight today, civil twilight">
     <meta name="robots" content="index, follow">
     
@@ -15,14 +15,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sunrisewhen.com">
     <meta property="og:title" content="Sunrise and Sunset Times">
-    <meta property="og:description" content="Today's Sunrise, Sunset and Civil Twilight Times for your area, up-to-date and accurate. Displayed minimalistically and data saving">
+    <meta property="og:description" content="Get accurate and up-to-date sunrise, sunset, and civil twilight times for your local area with our minimalistic and data-saving service. Never miss a beautiful sunrise or sunset again!">
     <meta property="og:image" content="/static/img/twitter_large.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sunrisewhen.com">
     <meta property="twitter:title" content="Sunrise and Sunset Times">
-    <meta property="twitter:description" content="Today's Sunrise, Sunset and Civil Twilight Times for your area, up-to-date and accurate. Displayed minimalistically and data saving">
+    <meta property="twitter:description" content="Get accurate and up-to-date sunrise, sunset, and civil twilight times for your local area with our minimalistic and data-saving service. Never miss a beautiful sunrise or sunset again!">
     <meta property="twitter:image" content="/static/img/twitter_large.png">
     
     <link rel="stylesheet" href="static/css/style.css">
@@ -37,28 +37,28 @@
 </head>
 <body>
     <h1 class="heading">Today's Sunrise and Sunset</h1>
+    <div class="heading">
+        <a id="loclink" class="footer-text" href="" target="_blank" rel="noreferrer"></a>
+    </div>
     <div class="schedule">
         <div class="sunrise">
             <img src="static/img/sunrise.svg" width="60%" alt="sunrise">
             <div id="loading1" class="lds-dual-ring"></div>
             <div id="sunrise" class="time"></div>
             <div id="sunrise_utc" class="time" style="font-size: 1.3em;"></div>
-            <div id="twilight_begin" class="time" style="font-size: 1.3em; display: none;"></div>
+            <div id="twilight_begin" class="time-twilight" style="font-size: 1.3em;">08:43:03 PM</div>
         </div>
         <div class="sunset">
             <img src="static/img/sunset.svg" width="60%" alt="sunset">
             <div id="loading2" class="lds-dual-ring"></div>
             <div id="sunset" class="time"></div>
             <div id="sunset_utc" class="time" style="font-size: 1.3em;"></div>
-            <div id="twilight_end" class="time" style="font-size: 1.3em; display: none;"></div>
+            <div id="twilight_end" class="time-twilight" style="font-size: 1.3em"></div>
         </div>
     </div>
     
     <div class="footer">
-        <a class="footer-text twilight-toggle" onclick="toggleTwilight();_paq.push(['trackEvent', 'Button', 'TwilightToggle']);">TWILIGHT</a>
         <br  />
-        <br  />
-        <a id="loclink" class="footer-text" href="" target="_blank" rel="noreferrer"></a>
         <br  />
         <a class="footer-text privacy" href="./privacy/" target="_blank">WE RESPECT YOUR PRIVACY, DON'T LET GOOGLE TRACK YOUR LOCATION JUST TO DISPLAY SOME TIMES!</a>
     </div>

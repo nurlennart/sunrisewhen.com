@@ -39,12 +39,12 @@ function updateDivs(times, position) {
     var el = document.querySelector('#loclink');
     
     var newEl = document.createElement('a');
-    newEl.setAttribute("class", 'footer-text');
+    newEl.setAttribute("class", 'heading footer-text');
     newEl.setAttribute("id", 'loclink');
     newEl.setAttribute("href", 'https://wego.here.com/?map=' + times["Lat"] + ',' + times["Lon"] + ',12,normal');
     newEl.setAttribute("target", '_blank');
     newEl.setAttribute("rel", 'noreferrer');
-    newEl.innerHTML = '📍 lat:' + times["Lat"] + ' lng:' + times["Lon"];
+    newEl.innerHTML = 'for 📍 lat:' + times["Lat"] + ' lng:' + times["Lon"];
     
     el.parentNode.replaceChild(newEl, el);
 }
@@ -81,12 +81,12 @@ function guesstimated() {
         var el = document.querySelector('#loclink');
         
         var newEl = document.createElement('a');
-        newEl.setAttribute("class", 'footer-text');
+        newEl.setAttribute("class", 'heading footer-text');
         newEl.setAttribute("id", 'loclink');
         newEl.setAttribute("href", 'https://wego.here.com/?map=' + times["Lat"] + ',' + times["Lon"] + ',12,normal');
         newEl.setAttribute("target", '_blank');
         newEl.setAttribute("rel", 'noreferrer');
-        newEl.innerHTML = 'guesstimated 📍 lat:' + times["Lat"] + ' lng:' + times["Lon"];
+        newEl.innerHTML = 'for guesstimated 📍 lat:' + times["Lat"] + ' lng:' + times["Lon"];
         
         el.parentNode.replaceChild(newEl, el);
     }
